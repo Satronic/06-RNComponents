@@ -19,10 +19,10 @@ export const MenuItem = ({ menuItem }: MenuItemProps) => {
             onPress={() => navigation.navigate(menuItem.component as never)}
         >
             <View style={styles.itemContainer}>
-                <Icon name={menuItem.icon} size={24} color={'white'} />
+                <Icon name={menuItem.icon} size={24} color={'#009900'} />
                 <Text style={styles.text}>{menuItem.name}</Text>
                 <View style={styles.spacer} />
-                <Icon name="chevron-forward-outline" size={24} color={'white'} />
+                <Icon name="chevron-forward-outline" size={24} color={'#009900'} />
             </View>
         </TouchableOpacity>
     )

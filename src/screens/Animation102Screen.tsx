@@ -1,5 +1,6 @@
-import React, {useRef} from 'react';
-import {Animated, PanResponder, StyleSheet, View} from 'react-native';
+import React, { useRef } from 'react';
+import { Animated, PanResponder, StyleSheet, View } from 'react-native';
+import { Header } from '../components/Header';
 
 export const Animation102Screen = () => {
   const pan = useRef(new Animated.ValueXY()).current;
@@ -13,23 +14,26 @@ export const Animation102Screen = () => {
         dy: pan.y,
       },
     ],
-    {
-      useNativeDriver: false
-    }),
+      {
+        useNativeDriver: false
+      }),
     onPanResponderRelease: () => {
       Animated.spring(
         pan, // Auto-multiplexed
-        {toValue: {x: 0, y: 0}, useNativeDriver: false}, // Back to zero
+        { toValue: { x: 0, y: 0 }, useNativeDriver: false }, // Back to zero
       ).start();
     },
   });
 
   return (
     <View style={styles.container}>
-      <Animated.View
-        {...panResponder.panHandlers}
-        style={[pan.getLayout(), styles.box]}
-      />
+      <Header title='Animation 102' />
+      <View style={styles.container}>
+        <Animated.View
+          {...panResponder.panHandlers}
+          style={[pan.getLayout(), styles.box]}
+        />
+      </View>
     </View>
   );
 };
@@ -37,6 +41,7 @@ export const Animation102Screen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center',
   },

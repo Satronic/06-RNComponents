@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { View, StyleSheet, Animated, Button, Easing } from 'react-native';
+import { Header } from '../components/Header';
 
 
 export const Animation101Screen = () => {
@@ -35,26 +36,29 @@ export const Animation101Screen = () => {
 
     return (
         <View style={styles.container}>
-            <Animated.View style={{
-                ...styles.purpleBox,
-                opacity: opacity,
-                transform: [{
-                    translateY: top
-                }]
-            }} />
-            <View style={styles.containerButtons}>
-                <Button
-                    title="Fade In"
-                    onPress={fadeIn}
-                />
-                <Button
-                    title="translate"
-                    onPress={translate}
-                />
-                <Button
-                    title="Fade Out"
-                    onPress={fadeOut}
-                />
+            <Header title='Animation 101' />
+            <View style={styles.container}>
+                <Animated.View style={{
+                    ...styles.purpleBox,
+                    opacity: opacity,
+                    transform: [{
+                        translateY: top
+                    }]
+                }} />
+                <View style={styles.containerButtons}>
+                    <Button
+                        title="Fade In"
+                        onPress={fadeIn}
+                    />
+                    <Button
+                        title="translate"
+                        onPress={translate}
+                    />
+                    <Button
+                        title="Fade Out"
+                        onPress={fadeOut}
+                    />
+                </View>
             </View>
         </View>
     )
@@ -64,7 +68,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'black'
     },
     purpleBox: {
         backgroundColor: 'magenta',
