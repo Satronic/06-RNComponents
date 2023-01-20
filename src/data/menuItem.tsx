@@ -16,4 +16,9 @@ export const menuItems: MenuItemInterface[] = [
         icon: 'toggle-outline',
         component: 'SwitchScreen'
     },
+    {
+        name: 'Alerts',
+        icon: 'alert-circle-outline',
+        component: 'AlertScreen'
+    },
 ]
