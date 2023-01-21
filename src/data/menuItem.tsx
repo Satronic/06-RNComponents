@@ -40,5 +40,10 @@ export const menuItems: MenuItemInterface[] = [
         name: 'Modal',
         icon: 'chatbox-outline',
         component: 'ModalScreen'
-    }
-]
+    },
+    {
+        name: 'Infinite Scroll',
+        icon: 'infinite-outline',
+        component: 'InfiniteScrollScreen'
+    },
+];
