@@ -64,7 +64,7 @@ export const InfiniteScrollScreen = () => {
             </View>
         </Container>
     )
-}
+};
 
 const styles = StyleSheet.create({
     containerItem: {
@@ -83,4 +83,4 @@ const styles = StyleSheet.create({
         width: 300,
         height: 200
     }
-})
+});

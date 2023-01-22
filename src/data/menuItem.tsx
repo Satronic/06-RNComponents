@@ -42,8 +42,13 @@ export const menuItems: MenuItemInterface[] = [
         component: 'ModalScreen'
     },
     {
-        name: 'Infinite Scroll',
+        name: 'InfiniteScroll',
         icon: 'infinite-outline',
         component: 'InfiniteScrollScreen'
+    },
+    {
+        name: 'Slides',
+        icon: 'albums-outline',
+        component: 'SlidesScreen'
     },
 ];
