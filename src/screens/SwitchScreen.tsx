@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Switch } from 'react-native';
+import { Container } from '../components/Container';
 import { CustomSwitch } from '../components/CustomSwitch';
 import { Header } from '../components/Header';
+import { ThemeContext } from '../context/theme/themeContext';
 
 interface State {
   isActive: boolean;
@@ -10,6 +12,8 @@ interface State {
 }
 
 export const SwitchScreen = () => {
+
+  const { theme: { colors } } = useContext(ThemeContext)
 
   const [state, setState] = useState({
     isActive: true,
@@ -25,37 +29,31 @@ export const SwitchScreen = () => {
   }
 
   return (
-    <View style={styles.container}>
-      <Header title="Switches" />
+    <Container title='Switches'>
 
       <View style={styles.switchContainer}>
-        <Text style={styles.text}>Is Active</Text>
+        <Text style={{ ...styles.text, color: colors.text }}>Is Active</Text>
         <CustomSwitch isOn={state.isActive} onChange={(value) => onChange(value, 'isActive')} />
       </View>
 
       <View style={styles.switchContainer}>
-        <Text style={styles.text}>Is Hungry</Text>
+        <Text style={{ ...styles.text, color: colors.text }}>Is Hungry</Text>
         <CustomSwitch isOn={state.isHungry} onChange={(value) => onChange(value, 'isHungry')} />
       </View>
 
       <View style={styles.switchContainer}>
-        <Text style={styles.text}>Is Happy</Text>
+        <Text style={{ ...styles.text, color: colors.text }}>Is Happy</Text>
         <CustomSwitch isOn={state.isHappy} onChange={(value) => onChange(value, 'isHappy')} />
       </View>
 
-      <Text style={styles.text}>
+      <Text style={{ ...styles.text, color: colors.text }}>
         {JSON.stringify(state, null, 4)}
       </Text>
-    </View>
+    </Container>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-    padding: 10
-  },
   switchContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',

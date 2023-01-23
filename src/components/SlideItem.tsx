@@ -3,6 +3,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import { Image } from 'react-native';
 import { Slide } from '../data/slidesItem';
 // import { Container } from './Container';
+import { useContext } from 'react';
+import { ThemeContext } from '../context/theme/themeContext';
 
 interface SlideItemProps {
     slideItem: Slide
@@ -10,16 +12,18 @@ interface SlideItemProps {
 
 export const SlideItem = ({ slideItem }: SlideItemProps) => {
 
+    const { theme: { colors } } = useContext(ThemeContext);
+
 
     return (
 
         <View style={styles.container}>
-            <Text style={styles.title}>{slideItem.title}</Text>
+            <Text style={{ ...styles.title, color: colors.text }}>{slideItem.title}</Text>
             <Image
                 style={styles.image}
                 source={slideItem.img}
             />
-            <Text style={styles.description}>{slideItem.desc}</Text>
+            <Text style={{ ...styles.description, color: colors.text }}>{slideItem.desc}</Text>
         </View>
     )
 }
@@ -32,9 +36,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         // backgroundColor: 'white'
     },
-    title:{
+    title: {
         // color: '#66aa00',
-        color: 'white',
+        // color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
         padding: 20
@@ -45,7 +49,7 @@ const styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     description: {
-        color: 'white',
+        // color: 'white',
         fontSize: 14,
         paddingVertical: 20
     }
